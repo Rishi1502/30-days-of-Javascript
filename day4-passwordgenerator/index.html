@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generate a <br><span>Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="pass" placeholder="password">
+            <img  id="copy" src="images/copy.png" alt="">
+        </div>
+        <button id="generate"><img src="images/generate.png" alt="">Generate Password</button>
+    </div>
+
+
+<script>
+    passBox = document.getElementById("pass")
+    const length = 12
+
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const lowerCase = 'abcdefghijklmnopqrstuvwxyz'
+    const numbers = '0123456789'
+    const symbols = "!@#$%^&*(){}:?><,./;'[]"
+
+    const all = upperCase+lowerCase+numbers+symbols
+
+    function createPass(){
+        let pass = ""
+        pass += upperCase[Math.floor(Math.random()*upperCase.length)];
+        pass += lowerCase[Math.floor(Math.random()*lowerCase.length)];
+        pass += numbers[Math.floor(Math.random()*numbers.length)];
+        pass += symbols[Math.floor(Math.random()*symbols.length)];
+
+        while(length>pass.length){
+            pass += all[Math.floor(Math.random()*all.length)];
+        }
+        passBox.value = pass;
+    }
+    function copyPass(){
+        passBox.select();
+        document.execCommand("copy");
+    }
+
+    const btn = document.getElementById("generate")
+    btn.addEventListener("click", createPass)
+
+    const copy = document.getElementById("copy")
+    copy.onclick = copyPass;
+
+
+</script>
+
+</body>
+</html>
