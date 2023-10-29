@@ -15,7 +15,7 @@ html,body {
     max-width: 700px;
 }
 
-/* #toast{
+.toast{
     visibility: hidden;
     background-color: #333;
     width: fit-content;
@@ -24,12 +24,12 @@ html,body {
     top: 20%;
     left: 45%;
     position: absolute;
-    transition: all ease-in-out;
+    transition: all ease-in-out 0.4s;
 }
 
 .show{
     visibility: visible;
-} */
+}
 
 .display{
     width: 100%;
